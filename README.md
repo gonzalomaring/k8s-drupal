@@ -1,4 +1,6 @@
-# El objetivo de este repositorio es trabajar con Drupal y MariaDB, añadiendo recolección de logs, monitorización y copias de seguridad usando Kubernetes
+# Recolección de logs + Monitorización de Drupal usando k8s
+
+El objetivo de este repositorio es trabajar con Drupal y MariaDB, añadiendo recolección de logs, monitorización y copias de seguridad usando Kubernetes
 
 ## Primera versión
 
