@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loki
+  labels:
+    app: loki
+    type: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loki
+      type: backend
+  template:
+    metadata:
+      labels:
+        app: loki
+        type: backend
+    spec:
+      volumes:
+        - name: pv-loki
+      containers:
+        - name: contenedor-loki
+          image: grafana/loki:2.0.0
+          ports:
+            - containerPort: 3100
+              name: loki-port
+#          volumeMounts:
+#            - name: pv-loki
+#              mountPath: /etc/loki/
+      volumes:
+        - name: pv-loki
+          hostPath:
+            path: /data/config
+            type: Directory
+
+
+  

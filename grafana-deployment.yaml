@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+  labels:
+    app: grafana
+    type: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+      type: frontend
+  template:
+    metadata:
+      labels:
+        app: grafana
+        type: frontend
+    spec:
+      volumes:
+        - name: pv-grafana
+      containers:
+        - name: contenedor-grafana
+          image: grafana/grafana
+          ports:
+            - containerPort: 3000
+              name: grafana-port
+          volumeMounts:
+            - mountPath: /etc/grafana/provisioning/datasources/
+              name: pv-grafana
+      volumes:
+        - name: pv-grafana
+          hostPath:
+            path: /data/grafana
+            type: Directory

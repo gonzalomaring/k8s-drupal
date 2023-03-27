@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fluentd
+  labels:
+    app: fluentd
+    type: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fluentd
+      type: backend
+  template:
+    metadata:
+      labels:
+        app: fluentd
+        type: backend
+    spec:
+      containers:
+        - name: contenedor-fluentd
+          image: grafana/fluent-bit-plugin-loki
+          ports:
+            - containerPort: 2020
+              name: fluentd-port
+            - containerPort: 24224
+              name: fluentd2-port
+            - containerPort: 2021
+              name: fluentd3-port
+#          args: ["/fluent-bit/bin/fluent-bit", "-c", "/data/fluent-bit.conf"]
+          volumeMounts:
+            - mountPath: /data
+              name: pv-fluentd
+          volumeMounts:
+            - mountPath: /fluent-bit/etc/
+              name: pv-fluentd
+          env:
+            - name: LOKI_URL
+              value: http://loki.default.svc.cluster.local:3100/loki/api/v1/push
+      volumes:
+        - name: pv-fluentd
+          hostPath:
+            path: /data/fluent-bit
+            type: Directory
+
+
+
+  

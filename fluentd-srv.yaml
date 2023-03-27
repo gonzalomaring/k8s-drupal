@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fluentd
+  labels:
+    app: fluentd
+    type: backend
+spec:
+  selector:
+    app: fluentd
+    type: backend
+  ports:
+  - name: fluentd-srv-port
+    port: 2020
+    targetPort: fluentd-port
+  - name: fluentd2-srv-port
+    port: 24224
+    targetPort: fluentd2-port
+  - name: fluentd3-srv-port
+    port: 2021
+    targetPort: fluentd3-port
+  type: NodePort
