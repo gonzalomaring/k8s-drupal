@@ -23,7 +23,7 @@ spec:
             claimName: pvc-drupal
       containers:
         - name: contenedor-drupal
-          image: gonzalomarin/drupal:latest
+          image: drupal:9.4-php8.0-apache-bullseye
           ports:
             - containerPort: 80
               name: http-port
@@ -32,27 +32,3 @@ spec:
           volumeMounts:
             - mountPath: /var/www/html/sites/default/files
               name: volumen-drupal
-          logging:
-            driver: "fluentd"
-            options:
-              fluentd-address: "fluentd.default.svc.cluster.local:24224"
-              fluentd-async-connect: "true"
-              tag: "drupal"
-#          env:
-#            - name: MYSQL_HOST
-#              value: mariadb-service
-#            - name: MYSQL_USER
-#              valueFrom:
-#                configMapKeyRef:
-#                  name: bd-datos
-#                  key: bd_user
-#            - name: MYSQL_PASSWORD
-#              valueFrom:
-#                secretKeyRef:
-#                  name: bd-passwords
-#                  key: bd_password
-#            - name: MYSQL_DATABASE
-#              valueFrom:
-#                configMapKeyRef:
-#                  name: bd-datos
-#                  key: bd_dbname

@@ -1,2 +1,4 @@
 bd_datos_configmap.yaml
 bd_datos_secrets.yaml
+fluent-bit/fluentd-deployment.yaml
+fluent-bit/fluentd-srv.yamlx
