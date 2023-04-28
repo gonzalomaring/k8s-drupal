@@ -26,7 +26,7 @@ spec:
             - containerPort: 3000
               name: grafana-port
           volumeMounts:
-            - mountPath: /etc/grafana/provisioning/datasources/
+            - mountPath: /etc/grafana/provisioning
               name: pv-grafana
       volumes:
         - name: pv-grafana

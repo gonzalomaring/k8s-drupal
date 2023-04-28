@@ -4,18 +4,18 @@ kind: Deployment
 metadata:
   name: mariadb
   labels:
-    app: drupal
+    app: mariadb
     type: database
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: drupal
+      app: mariadb
       type: database
   template:
     metadata:
       labels:
-        app: drupal
+        app: mariadb
         type: database
     spec:
       volumes:
@@ -33,22 +33,10 @@ spec:
               name: volumen-mariadb
           env:
             - name: MYSQL_USER
-              valueFrom:
-                configMapKeyRef:
-                  name: bd-datos
-                  key: bd_user
+              value: user
             - name: MYSQL_DATABASE
-              valueFrom:
-                configMapKeyRef:
-                  name: bd-datos
-                  key: bd_dbname
+              value: drupal
             - name: MYSQL_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: bd-passwords
-                  key: bd_password
+              value: clave
             - name: MYSQL_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: bd-passwords
-                  key: bd_rootpassword
+              value: root

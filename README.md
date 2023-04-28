@@ -1,19 +1,11 @@
-# Recolección de logs + Monitorización de Drupal usando k8s
+# Recolección de logs de Drupal
 
-El objetivo de este repositorio es trabajar con Drupal y MariaDB, añadiendo recolección de logs, monitorización y copias de seguridad usando Kubernetes
+El objetivo de este repositorio es recolectar los logs del contenedor Drupal mediante Loki y Fluent Bit
 
-## Primera versión
+## Versión actual
 
-En la primera versión instalaremos la bases, las cuales se componen del CMS y su correspondiente base de datos.
+Actualmente está funcionando el CMS, la BBDD, grafana y loki.
 
-## Segunda versión 
+# Próximas mejoras
 
-En esta segunda versión, añadiremos la recolección de logs usando Grafana + Loki + Fluent Bit.
-
-## Tercera versión
-
-Añadiremos node exporter y/o Prometheus
-
-## Cuarta versión
-
-Añadiremos un sistema de copias de seguridad
+Lo único restante es Fluent Bit, que estoy trabajando en incorporarlo cuanto antes.
