@@ -31,5 +31,5 @@ spec:
       volumes:
         - name: pv-grafana
           hostPath:
-            path: /data/grafana
+            path: /data/grafana/provisioning
             type: Directory

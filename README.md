@@ -1,11 +1,15 @@
-# Recolección de logs de Drupal
+# Recolección de logs de Drupal usando k8s, Loki y Fluent Bit
 
-El objetivo de este repositorio es recolectar los logs del contenedor Drupal mediante Loki y Fluent Bit
+En este repositorio recolectaremos los logs de una máquina Drupal usando Fluent Bit y Loki. Usaremos grafana para ver los mismos.
 
 ## Versión actual
 
-Actualmente está funcionando el CMS, la BBDD, grafana y loki.
+Actualmente está funcionando el CMS, la BBDD, Grafana, Loki y Fluent Bit.
 
-# Próximas mejoras
+## Próximas mejoras
 
-Lo único restante es Fluent Bit, que estoy trabajando en incorporarlo cuanto antes.
+Podríamos añadir:
+
+-Prometheus
+-Node Exporter
+-MySQL Exporter
